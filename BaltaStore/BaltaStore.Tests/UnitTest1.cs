@@ -18,6 +18,8 @@ namespace BaltaStore.Tests
                  "123456",
                  "Rua Rodrigues Alves 1147"
             );
+
+            var order = new Order(c);
         }
     }
 }
