@@ -1,0 +1,62 @@
+Primeiro passo Acessar -> https://dotnet.microsoft.com/ -> Dowload -> DornetCore-> Fazer Dowload do SDK
+usar dotnet 2.1
+Verificando Versao -> dotnet --version
+
+extensao para VsCode
+1.0 C#
+2.0 nuget package maneger
+3.0 Gerenciador de pacotes NuGet
+
+Criando Projetos  usar o power shell
+Api
+Cd BaltaStore\BaltaStore.Api
+dotnet new Web
+
+Domain 
+cd BaltaStore\BaltaStore.Domain
+dotnet new classlib
+
+Infra 
+cd BaltaStore\BaltaStore.Infra
+dotnet new classlib
+
+Shared
+cd BaltaStore\BaltaStore.Shared
+dotnet new classlib
+
+Tests
+cd BaltaStore\BaltaStore.Tests
+dotnet new mstest
+
+Criando uma solucao
+cd C:\MyGith\ApiNet.CoreDapper\BaltaStore
+dotnet new sln
+
+Adicionando projetos a uma solucao
+* dotnet  sln add  .\BaltaStore.Api\BaltaStore.Api.csproj   
+* dotnet sln add .\BaltaStore.Domain\BaltaStore.Domain.csproj
+* dotnet sln add .\BaltaStore.Infra\BaltaStore.Infra.csproj
+* dotnet sln add .\BaltaStore.Shared\BaltaStore.Shared.csproj
+* dotnet sln add .\BaltaStore.Tests\BaltaStore.Tests.csproj
+
+Restautando Todos os pacotes da Aplicacao
+dotnet restore
+
+Fazendo Build
+dotnet build
+
+Identação
+
+ALT + SHIFT + F
+
+classes
+Selead nao pode ser herdada
+abstract nao pode criar objetos a partir dela usando o new
+
+Adiconando a referencia de um projeto em outro
+cd BaltaStore\BaltaStore.Tests
+dotnet add reference ..\BaltaStore.Domain\BaltaStore.Domain.csproj
+
+
+Passo a passo do projeto
+Comecar pelas Entidades
