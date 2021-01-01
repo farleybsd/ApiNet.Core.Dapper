@@ -60,3 +60,8 @@ dotnet add reference ..\BaltaStore.Domain\BaltaStore.Domain.csproj
 
 Passo a passo do projeto
 Comecar pelas Entidades
+
+Dominio de Noticacoes (Instalar apenas no dominio)
+ Exibir -> Outras Janelas de Notificacao -> Console Gerenciador de pacote
+ https://www.nuget.org/packages/FluentValidator
+ Install-Package FluentValidator -Version 2.0.2
