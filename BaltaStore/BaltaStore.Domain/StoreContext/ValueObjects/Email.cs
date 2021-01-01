@@ -1,10 +1,20 @@
-﻿namespace BaltaStore.Domain.StoreContext.ValueObjects
+﻿using FluentValidator;
+using FluentValidator.Validation;
+
+namespace BaltaStore.Domain.StoreContext.ValueObjects
 {
-    public class Email
+    public class Email : Notifiable
+
     {
         public Email(string address)
         {
             Address = address;
+
+            AddNotifications(new ValidationContract()
+                  .Requires()
+                  .IsEmail(Address, "Address", "O E-mail é invalido")
+                  
+                  );
         }
 
         public string Address { get; private set; }
