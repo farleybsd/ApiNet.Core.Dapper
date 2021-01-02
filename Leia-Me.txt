@@ -65,3 +65,14 @@ Dominio de Noticacoes (Instalar apenas no dominio)
  Exibir -> Outras Janelas de Notificacao -> Console Gerenciador de pacote
  https://www.nuget.org/packages/FluentValidator
  Install-Package FluentValidator -Version 2.0.2
+
+Criando Package
+entrar na pasta do projeto
+dotnet pack
+Adicionando Package Criando
+entrar na pasta do projeto
+dotnet add package BaltaStore.Domain.BackOffice
+
+execultar teste VsCode
+entrar no projeto
+dotnet test
