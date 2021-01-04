@@ -1,9 +1,10 @@
-﻿using FluentValidator;
+﻿using BaltaStore.Shared.Commands;
+using FluentValidator;
 using FluentValidator.Validation;
 
 namespace BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Input
 {
-    public class CreateCustomerCommand : Notifiable
+    public class CreateCustomerCommand : Notifiable , IComand
     {
         
 
