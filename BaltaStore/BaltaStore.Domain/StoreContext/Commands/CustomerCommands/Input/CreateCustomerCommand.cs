@@ -26,7 +26,7 @@ namespace BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Input
                  .IsEmail(Email, "Address", "O E-mail é invalido")
                  .HasLen(Document,11, "Document","CpfInvalido")
                  );
-            return Valid();
+            return IsValid;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace BaltaStore.Domain.StoreContext.Commands.OrderCommands.Input
                  .HasLen(customer.ToString(), 36, "customer", "Identificador do cliente invalido")
                  .IsGreaterThan(OrdemItems.Count,0, "Items", "Nenhium Item do pedido encontrado")
                  );
-            return Valid();
+            return IsValid;
         }
     }
 
