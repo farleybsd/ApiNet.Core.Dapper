@@ -1,6 +1,8 @@
 ﻿using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Input;
 using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.OutPuts;
 using BaltaStore.Domain.StoreContext.Entities;
+using BaltaStore.Domain.StoreContext.Repositories;
+using BaltaStore.Domain.StoreContext.Services;
 using BaltaStore.Domain.StoreContext.ValueObjects;
 using BaltaStore.Shared.Commands;
 using FluentValidator;
@@ -15,12 +17,24 @@ namespace BaltaStore.Domain.StoreContext.Handlers
         ICommandHandler<CreateCustomerCommand>,
         ICommandHandler<AddAdressCommandcs>
     {
+        private readonly ICustomRepository _repository;
+        private readonly IEmailService _emailService;
+
+        public CustomerHandler(ICustomRepository repository, IEmailService emailService)
+        {
+            _repository = repository;
+            _emailService = emailService;
+        }
+
         public ICommandResult Handle(CreateCustomerCommand command)
         {
-
             // Verificar se o Cpf ja existe na base
+            if(_repository.checkDocument(command.Document))
+                AddNotification("Document", "Este CPF já está em uso"); //return null;
 
             //Verificar se o email ja existe na base
+            if(_repository.checkEmail(command.Email))
+                AddNotification("Email", "Email já existe"); //return null;
 
             //Criar os Vos
             var name = new Name(command.FirtsName, command.LastName);
@@ -36,13 +50,17 @@ namespace BaltaStore.Domain.StoreContext.Handlers
             AddNotifications(email.Notifications);
             AddNotifications(customer.Notifications);
 
+            if (Invalid)
+                return null;
+
             //Persistir o cliente
+            _repository.Save(customer);
 
             //Enviar um E-mail de boas vindas
+            _emailService.Send(email.Address,"farley.t.i@hotmail.com","Bem Vindo","teste");
 
             //Retornar o resultado para tela
-
-            return new CreateCustomerCommandResult(Guid.NewGuid(),name.ToString(),email.Address);
+            return new CreateCustomerCommandResult(customer.Id,name.ToString(),email.Address);
         }
 
         public ICommandResult Handle(AddAdressCommandcs command)
