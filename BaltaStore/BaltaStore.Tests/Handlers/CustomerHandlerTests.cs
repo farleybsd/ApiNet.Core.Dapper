@@ -21,10 +21,13 @@ namespace BaltaStore.Tests.Handlers
             command.Email = "Farley.t.i@hotmail.com";
             command.Phone = "32123626";
 
-            Assert.AreEqual(true, command.Valid());
-
             var handler = new CustomerHandler(new FakeCustomerRepository(),new FakeEmailService());
+
+            var result = handler.Handle(command);
+
+            Assert.AreNotEqual(null, result);
+            Assert.AreEqual(true, handler.IsValid);
         }
-        
+
     }
 }
