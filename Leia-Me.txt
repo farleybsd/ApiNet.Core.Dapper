@@ -76,3 +76,8 @@ dotnet add package BaltaStore.Domain.BackOffice
 execultar teste VsCode
 entrar no projeto
 dotnet test
+
+Instalar Dapper
+
+ Install-Package Dapper -Version 2.0.78
+ dotnet add package Dapper
