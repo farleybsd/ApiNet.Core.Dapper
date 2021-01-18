@@ -81,3 +81,7 @@ Instalar Dapper
 
  Install-Package Dapper -Version 2.0.78
  dotnet add package Dapper
+
+ Rodando Api via terminal
+ cd BaltaStore.Api
+ dotnet run 
