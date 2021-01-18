@@ -85,3 +85,7 @@ Instalar Dapper
  Rodando Api via terminal
  cd BaltaStore.Api
  dotnet run 
+
+ Adc mvc
+ cd C:\MyGith\ApiNet.Core.Dapper\BaltaStore\BaltaStore.Api> 
+ dotnet add package Microsoft.AspNetCore
