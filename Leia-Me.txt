@@ -88,4 +88,7 @@ Instalar Dapper
 
  Adc mvc
  cd C:\MyGith\ApiNet.Core.Dapper\BaltaStore\BaltaStore.Api> 
- dotnet add package Microsoft.AspNetCore
+ dotnet add package Microsoft.AspNetCore (n prcisa visual studio)
+
+ validacacao  na Api
+ dotnet add package FluentValidator@2.0.2

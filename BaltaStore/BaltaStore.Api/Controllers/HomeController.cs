@@ -8,6 +8,7 @@ namespace BaltaStore.Api.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         [Route("")]
         public object GetVersion()
         {
