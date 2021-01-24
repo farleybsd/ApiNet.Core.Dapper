@@ -12,5 +12,8 @@ namespace BaltaStore.Domain.StoreContext.Repositories
         bool checkEmail(string email);
         void Save(Customer customer);
         CustomerOrderCountResult GetCustomerOrderCount(string Document);
+        IEnumerable<ListCustomerQueryResult> Get();
+        GetCustomerQueryResult Get(Guid id);
+        IEnumerable<ListQueryCustomerOrderQueryResult> GetOrders(Guid id);
     }
 }
