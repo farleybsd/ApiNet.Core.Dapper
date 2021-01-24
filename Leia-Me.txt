@@ -101,3 +101,10 @@ Instalar Dapper
  Swagger
  cd cd C:\MyGith\ApiNet.Core.Dapper\BaltaStore\BaltaStore.Api> 
 dotnet add package Swashbuckle.AspNetCore
+
+Log
+https://elmah.io/logsetup
+dotnet add package elmah.io.AspNetCore
+using Elmah.Io.AspNetCore;
+
+app.UseElmah("Api_Key",new Guid("Log_Id"));
