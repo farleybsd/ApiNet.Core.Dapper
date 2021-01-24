@@ -1,4 +1,5 @@
-﻿using BaltaStore.Domain.StoreContext.Repositories;
+﻿using BaltaStore.Domain.StoreContext.Handlers;
+using BaltaStore.Domain.StoreContext.Repositories;
 using BaltaStore.Domain.StoreContext.Services;
 using BaltaStore.Infra.StoreContext.DataContext;
 using BaltaStore.Infra.StoreContext.Repositories;
@@ -21,6 +22,7 @@ namespace BaltaStore.Api
             services.AddScoped<BaltaDataContext, BaltaDataContext>();// mantem uma instacia por escopo
             services.AddTransient<ICustomRepository, CustomerRepository>(); // instacia um novo uso descartou
             services.AddTransient<IEmailService, EmailService>();// instacia um novo uso descartou
+            services.AddTransient<CustomerHandler, CustomerHandler>();
 
         }
 
