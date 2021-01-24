@@ -25,6 +25,9 @@ namespace BaltaStore.Api.Controllers
 
         [HttpGet]
         [Route("v1/customers")]
+        [ResponseCache(Duration =60)] // Cache da rota
+        //[ResponseCache(Location =ResponseCacheLocation.Client,Duration = 60)] // Cache do lado do cliente
+        //Evitar Coisas para fazer que cahe que muda com mt frequencia
         public IEnumerable<ListCustomerQueryResult> Get()
         {
             
