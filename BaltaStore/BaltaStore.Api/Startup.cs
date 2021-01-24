@@ -6,8 +6,8 @@ using BaltaStore.Infra.StoreContext.Repositories;
 using BaltaStore.Infra.StoreContext.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
 namespace BaltaStore.Api
 {
@@ -27,6 +27,12 @@ namespace BaltaStore.Api
             services.AddTransient<IEmailService, EmailService>();// instacia um novo uso descartou
             services.AddTransient<CustomerHandler, CustomerHandler>();
 
+            //Swagger
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Balta Store", Version = "v1" });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +43,11 @@ namespace BaltaStore.Api
 
             app.UseMvc();
             //app.UseResponseCompression();// Adicionado Compressao nas respstas da Api usando o Gzip
-            
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Balta Store - V1");
+            });
         }
     }
 }

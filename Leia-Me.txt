@@ -97,3 +97,7 @@ Instalar Dapper
  cd cd C:\MyGith\ApiNet.Core.Dapper\BaltaStore\BaltaStore.Api> 
 
  dotnet add package Microsoft.AspNetCore.ResponseCompression --version 2.0.1
+
+ Swagger
+ cd cd C:\MyGith\ApiNet.Core.Dapper\BaltaStore\BaltaStore.Api> 
+dotnet add package Swashbuckle.AspNetCore
