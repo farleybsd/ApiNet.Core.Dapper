@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BaltaStore.Domain.StoreContext.Commands.CustomerCommands.OutPuts
 {
-    public class CreateCustomerCommandResult : ICommandResult
+    public class CommandResult : ICommandResult
     {
-        public CreateCustomerCommandResult(bool sucess, string message, object data)
+        public CommandResult(bool sucess, string message, object data)
         {
             Sucess = sucess;
             Message = message;

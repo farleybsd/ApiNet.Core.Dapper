@@ -1,9 +1,11 @@
 ﻿using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Input;
+using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.OutPuts;
 using BaltaStore.Domain.StoreContext.Entities;
 using BaltaStore.Domain.StoreContext.Handlers;
 using BaltaStore.Domain.StoreContext.Queries;
 using BaltaStore.Domain.StoreContext.Repositories;
 using BaltaStore.Domain.StoreContext.ValueObjects;
+using BaltaStore.Shared.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -51,13 +53,9 @@ namespace BaltaStore.Api.Controllers
 
         [HttpPost]
         [Route("v1/customers")]
-        public object Post([FromBody]CreateCustomerCommand command)
+        public ICommandResult Post([FromBody]CreateCustomerCommand command)
         {
-            var result = (CreateCustomerCommand) _handlers.Handle(command);
-
-            if (_handlers.Invalid)
-                return BadRequest(_handlers.Notifications);
-
+            var result = (CommandResult)_handlers.Handle(command);
             return result;
         }
 
