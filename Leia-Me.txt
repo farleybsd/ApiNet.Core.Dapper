@@ -92,3 +92,8 @@ Instalar Dapper
 
  validacacao  na Api
  dotnet add package FluentValidator@2.0.2
+
+ Adicionando Compressao nos arquivos que a Api vai retornar
+ cd cd C:\MyGith\ApiNet.Core.Dapper\BaltaStore\BaltaStore.Api> 
+
+ dotnet add package Microsoft.AspNetCore.ResponseCompression --version 2.0.1

@@ -18,6 +18,9 @@ namespace BaltaStore.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //services.AddResponseCompression(); // Adicionado Compressao nas respstas da Api
+
             // Injecao de depencia das classes o que os construtores dependem registrar aqui
             services.AddScoped<BaltaDataContext, BaltaDataContext>();// mantem uma instacia por escopo
             services.AddTransient<ICustomRepository, CustomerRepository>(); // instacia um novo uso descartou
@@ -33,6 +36,8 @@ namespace BaltaStore.Api
                 app.UseDeveloperExceptionPage();
 
             app.UseMvc();
+            //app.UseResponseCompression();// Adicionado Compressao nas respstas da Api usando o Gzip
+            
         }
     }
 }
